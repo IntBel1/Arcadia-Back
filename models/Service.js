@@ -1,6 +1,6 @@
 // models/service.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // Adjust the path to your database configuration
+const sequelize = require('../utils/database'); // Adjust the path to your database configuration
 
 const Service = sequelize.define('Service', {
   appear: {

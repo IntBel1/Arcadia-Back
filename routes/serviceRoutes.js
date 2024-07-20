@@ -4,18 +4,18 @@ const router = express.Router();
 const serviceController = require('../controllers/serviceController');
 
 // Create a new service
-router.post('/services', serviceController.createService);
+router.post('/', serviceController.createService);
 
 // Get all services
-router.get('/services', serviceController.getAllServices);
+router.get('/', serviceController.getAllServices);
 
 // Get a single service by ID
-router.get('/services/:id', serviceController.getServiceById);
+router.get('/:id', serviceController.getServiceById);
 
 // Update a service by ID
-router.put('/services/:id', serviceController.updateService);
+router.put('/:id', serviceController.updateService);
 
 // Delete a service by ID
-router.delete('/services/:id', serviceController.deleteService);
+router.delete('/:id', serviceController.deleteService);
 
 module.exports = router;
