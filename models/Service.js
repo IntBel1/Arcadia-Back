@@ -3,23 +3,7 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../utils/database'); // Adjust the path to your database configuration
 
 const Service = sequelize.define('Service', {
-  appear: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
-  body: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
-  intro: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
-  lifeStyle: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
-  preserve: {
+  description: {
     type: DataTypes.STRING,
     allowNull: true,
   },
@@ -32,14 +16,15 @@ const Service = sequelize.define('Service', {
     type: DataTypes.STRING,
     allowNull: true,
   },
-  url: {
+  image: {
     type: DataTypes.STRING,
     allowNull: true,
   },
-  warn: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
+  
+}, {
+    tableName: 'services',
+  timestamps: false,
+  freezeTableName: true  
 });
 
 module.exports = Service;

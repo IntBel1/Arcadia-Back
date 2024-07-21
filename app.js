@@ -7,6 +7,7 @@ const serviceRoutes = require('./routes/serviceRoutes');
 const authRoutes = require('./routes/authRoutes')
 const sequelize = require('./utils/database');// Adjust the path to your database configuration
 const models = require('./models/init');
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -17,6 +18,7 @@ app.use(express.json());
 // Middleware to parse URL-encoded bodies
 app.use(express.urlencoded({ extended: true }));
 // Routes
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/service', serviceRoutes);
 app.use('/user', authRoutes);
 app.use(bodyParser.json());

@@ -18,19 +18,20 @@ exports.register = async (req, res) => {
 
 exports.login = async (req, res) => {
   const { username, password } = req.body;
-  const user = users.find(u => u.username === username);
+  const user =  await users.findOne({ where: { username } });
 
   if (!user) {
     return res.status(404).json({ error: 'User not found' });
   }
+  const hashedpassword = user.password;
 
-  const isValid = await bcrypt.compare(password, user.password);
+  const isValid = await bcrypt.compare(password, hashedpassword);
 
   if (!isValid) {
     return res.status(401).json({ error: 'Invalid password' });
   }
 
-  const token = jwt.sign({ username: user.username }, SECRET_KEY, { expiresIn: '1h' });
+  const token = jwt.sign({ username: user.username, role: user.role_id}, SECRET_KEY, { expiresIn: '1h' });
 
-  res.json({ token });
+  res.json({ token:token,role:user.role_id });
 };
