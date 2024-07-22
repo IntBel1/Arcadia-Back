@@ -24,7 +24,7 @@ app.use('/user', authRoutes);
 app.use(bodyParser.json());
 
 // Sync database and start server
-sequelize.sync()
+sequelize.authenticate()
   .then(() => {
     app.listen(PORT, () => {
       debug(`Server is running on port ${PORT}`);

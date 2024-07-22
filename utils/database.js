@@ -1,8 +1,8 @@
 const { Sequelize } = require('sequelize');
 
 // Create a new instance of Sequelize
-const sequelize = new Sequelize('arcadia', 'root', '', {
-    host: 'localhost',
+const sequelize = new Sequelize('arcadiaintissar_database', '370032', 'arcadia2024', {
+    host: 'mysql-arcadiaintissar.alwaysdata.net',
     dialect: 'mysql',
 });
 
