@@ -8,7 +8,7 @@ exports.createService = async (req, res) => {
       if (err) {
         return res.status(400).json({ msg: err });
       }
-      const { description, etat, breed, lifeStyle, habitat, title } = req.body;
+      const { description, title } = req.body;
     const image = req.file ? req.file.filename : null; 
       try {
     const service = await Service.create({description, title, image});
